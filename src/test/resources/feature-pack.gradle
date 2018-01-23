@@ -1,0 +1,22 @@
+plugins {
+	id 'org.wildfly.build.featurepack'
+}
+
+//dependencies {
+//
+//	featurepack( libraries.hibernateorm )
+//}
+
+featurepack {
+	moduleTemplates = file("$rootDir/examplemodules") //where to find the templates for module.xml files to generate
+	destinationDir = file( "$rootDir/featurepack") //Target build directory
+	//TODO metadata for the" output POM
+	variables['slot'] = 'orm53'
+	variables['anotherKey'] = 'anotherValue'
+}
+
+//task pack(type: FeaturePackBuilderTask){
+//	slot = 'orm53'
+//	moduleTemplates = file('/examplemodules')//dove sono i miei module.xml
+//	destinationDir = file( '/examplesmodules/featurepack') //TODO destination ZIP
+//}
